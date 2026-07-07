@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+
+{% block title %}About — Credit Card Approval Prediction System{% endblock %}
+{% block meta_desc %}Learn about the Credit Card Approval Prediction project — objectives, ML workflow, technologies, and deployment strategy.{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================================
+     PAGE HERO
+     ========================================================================= -->
+<section class="page-hero" aria-labelledby="about-heading">
+  <div class="container position-relative" style="z-index:2;">
+    <div class="row align-items-center">
+      <div class="col-lg-8 fade-in-up">
+        <div class="hero-badge mb-3">
+          <span class="pulse-dot"></span>
+          Project Overview
+        </div>
+        <h1 class="page-hero-title" id="about-heading">
+          About This Project
+        </h1>
+        <p class="page-hero-sub mt-3">
+          Automating credit card approval decisions with state-of-the-art Machine Learning —
+          from data collection to IBM Watson cloud deployment.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     ABOUT CONTENT
+     ========================================================================= -->
+<section class="about-content">
+  <div class="container">
+
+    <!-- Overview & Objectives -->
+    <div class="row g-4 mb-5">
+
+      <!-- Project Overview -->
+      <div class="col-lg-6 fade-in-left">
+        <div class="glass-card">
+          <div class="feature-icon icon-blue mb-3" aria-hidden="true">
+            <i class="bi bi-info-circle-fill"></i>
+          </div>
+          <h4>Project Overview</h4>
+          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.75;margin-bottom:1rem;">
+            Banks receive <strong>thousands of credit card applications</strong> every day.
+            Manual verification is time-consuming, costly, and prone to human bias.
+          </p>
+          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.75;margin-bottom:1rem;">
+            This project automates the credit card approval process using
+            <strong>Machine Learning</strong>. The system analyses applicant demographic
+            and financial information and predicts whether an application should be
+            <span style="color:var(--success);font-weight:700;">Approved</span> or
+            <span style="color:var(--danger);font-weight:700;">Rejected</span>.
+          </p>
+          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.75;margin:0;">
+            The best-performing model is integrated with a Flask web application
+            and is ready for deployment on <strong>IBM Watson Machine Learning</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Objectives -->
+      <div class="col-lg-6 fade-in-right delay-200">
+        <div class="glass-card">
+          <div class="feature-icon icon-green mb-3" aria-hidden="true">
+            <i class="bi bi-bullseye"></i>
+          </div>
+          <h4>Project Objectives</h4>
+          <ul class="objective-list">
+            <li>
+              <span class="obj-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+              Automate credit card approval decisions using trained ML models
+            </li>
+            <li>
+              <span class="obj-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+              Analyse and preprocess real-world credit application data
+            </li>
+            <li>
+              <span class="obj-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+              Train and evaluate Logistic Regression, Decision Tree, Random Forest &amp; XGBoost
+            </li>
+            <li>
+              <span class="obj-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+              Select the best model and serialise it with Pickle
+            </li>
+            <li>
+              <span class="obj-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+              Build a professional Flask web application for real-time inference
+            </li>
+            <li>
+              <span class="obj-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+              Deploy the solution on IBM Watson Machine Learning for enterprise use
+            </li>
+            <li>
+              <span class="obj-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+              Ensure a responsive, accessible, and modern user interface
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ML Models Used -->
+    <div class="row mb-5">
+      <div class="col-12 fade-in-up">
+        <div class="glass-card">
+          <h4 class="mb-4"><i class="bi bi-cpu me-2 text-primary"></i>Machine Learning Models</h4>
+          <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6 text-center">
+              <div class="p-3 rounded-3 mb-2" style="background:rgba(37,99,235,0.07);">
+                <i class="bi bi-graph-up fs-2 text-primary mb-2 d-block"></i>
+                <span class="model-pill lr">Logistic Regression</span>
+              </div>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin:0.5rem 0 0;">
+                Linear baseline model — fast, interpretable, good for linearly separable data.
+              </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 text-center">
+              <div class="p-3 rounded-3 mb-2" style="background:rgba(245,158,11,0.07);">
+                <i class="bi bi-diagram-3 fs-2 text-warning mb-2 d-block"></i>
+                <span class="model-pill dt">Decision Tree</span>
+              </div>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin:0.5rem 0 0;">
+                Tree-based classification — highly explainable with clear decision paths.
+              </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 text-center">
+              <div class="p-3 rounded-3 mb-2" style="background:rgba(34,197,94,0.07);">
+                <i class="bi bi-tree fs-2 text-success mb-2 d-block"></i>
+                <span class="model-pill rf">Random Forest</span>
+              </div>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin:0.5rem 0 0;">
+                Ensemble of trees — highest accuracy (93.4%), robust to overfitting.
+              </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 text-center">
+              <div class="p-3 rounded-3 mb-2" style="background:rgba(239,68,68,0.07);">
+                <i class="bi bi-lightning-charge fs-2 text-danger mb-2 d-block"></i>
+                <span class="model-pill xgb">XGBoost</span>
+              </div>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin:0.5rem 0 0;">
+                Gradient boosting champion — 91.7% accuracy with feature importance ranking.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workflow Timeline -->
+    <div class="workflow-section fade-in-up">
+      <h3 class="workflow-title">
+        <i class="bi bi-arrow-down-circle-fill text-primary me-2"></i>
+        Project Workflow
+      </h3>
+
+      <div class="workflow-timeline" role="list">
+
+        {% set steps = [
+          ("Dataset Collection",     "Gathered credit card application data from UCI ML Repository with 690 samples and 16 features."),
+          ("Data Analysis",          "Exploratory data analysis — class distribution, feature correlations, outlier detection."),
+          ("Data Preprocessing",     "Handled missing values, encoded categorical variables, and normalised numerical features."),
+          ("Feature Engineering",    "Selected key financial and demographic predictors; applied SMOTE for class balancing."),
+          ("Model Building",         "Trained Logistic Regression, Decision Tree, Random Forest, and XGBoost classifiers."),
+          ("Model Evaluation",       "Compared models using accuracy, precision, recall, F1-score, and ROC-AUC curves."),
+          ("Flask Deployment",       "Serialised the best model with Pickle and served it via a production-ready Flask REST API."),
+          ("IBM Watson Deployment",  "Published the model to IBM Watson Machine Learning for scalable cloud inference."),
+        ] %}
+
+        {% for name, desc in steps %}
+        <div class="workflow-step" role="listitem">
+          <div class="workflow-dot" aria-hidden="true">{{ loop.index }}</div>
+          <div class="workflow-body">
+            <strong>{{ name }}</strong>
+            <span>{{ desc }}</span>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="row mt-5">
+      <div class="col-12 fade-in-up">
+        <div class="glass-card">
+          <h4 class="mb-4"><i class="bi bi-layers me-2 text-primary"></i>Technology Stack</h4>
+          <div class="row g-3">
+
+            <div class="col-md-3 col-6">
+              <div class="p-3 rounded-3 text-center h-100" style="background:#F8FAFC;border:1px solid var(--border);">
+                <i class="bi bi-filetype-py fs-2 text-primary d-block mb-1"></i>
+                <strong style="font-size:0.9rem;">Python</strong>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin:0;">Backend Logic</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="p-3 rounded-3 text-center h-100" style="background:#F8FAFC;border:1px solid var(--border);">
+                <i class="bi bi-server fs-2 text-success d-block mb-1"></i>
+                <strong style="font-size:0.9rem;">Flask</strong>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin:0;">Web Framework</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="p-3 rounded-3 text-center h-100" style="background:#F8FAFC;border:1px solid var(--border);">
+                <i class="bi bi-bootstrap fs-2" style="color:#7952B3;" aria-hidden="true"></i>
+                <i class="bi bi-bootstrap fs-2 d-block mb-1" style="color:#7952B3;"></i>
+                <strong style="font-size:0.9rem;">Bootstrap 5</strong>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin:0;">UI Framework</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="p-3 rounded-3 text-center h-100" style="background:#F8FAFC;border:1px solid var(--border);">
+                <i class="bi bi-graph-up fs-2 text-warning d-block mb-1"></i>
+                <strong style="font-size:0.9rem;">Scikit-learn</strong>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin:0;">ML Library</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="p-3 rounded-3 text-center h-100" style="background:#F8FAFC;border:1px solid var(--border);">
+                <i class="bi bi-lightning-charge fs-2 text-danger d-block mb-1"></i>
+                <strong style="font-size:0.9rem;">XGBoost</strong>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin:0;">Gradient Boosting</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="p-3 rounded-3 text-center h-100" style="background:#F8FAFC;border:1px solid var(--border);">
+                <i class="bi bi-table fs-2 text-info d-block mb-1"></i>
+                <strong style="font-size:0.9rem;">Pandas / NumPy</strong>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin:0;">Data Processing</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="p-3 rounded-3 text-center h-100" style="background:#F8FAFC;border:1px solid var(--border);">
+                <i class="bi bi-box-seam fs-2" style="color:#6366F1;" aria-hidden="true"></i>
+                <i class="bi bi-box-seam fs-2 d-block mb-1" style="color:#6366F1;"></i>
+                <strong style="font-size:0.9rem;">Pickle</strong>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin:0;">Model Serialisation</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="p-3 rounded-3 text-center h-100" style="background:#F8FAFC;border:1px solid var(--border);">
+                <i class="bi bi-cloud-upload fs-2" style="color:#0F62FE;" aria-hidden="true"></i>
+                <i class="bi bi-cloud-upload fs-2 d-block mb-1" style="color:#0F62FE;"></i>
+                <strong style="font-size:0.9rem;">IBM Watson ML</strong>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin:0;">Cloud Deployment</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5 fade-in-up">
+      <a href="{{ url_for('predict') }}" class="btn-hero-primary d-inline-flex" id="about-cta-btn">
+        <i class="bi bi-cpu-fill"></i>
+        Try the Prediction System
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

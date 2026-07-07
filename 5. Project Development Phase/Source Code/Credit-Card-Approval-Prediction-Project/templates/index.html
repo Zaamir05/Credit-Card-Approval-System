@@ -1,0 +1,411 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Form — Credit Card Approval Prediction System{% endblock %}
+{% block meta_desc %}Submit applicant details to get an instant AI-powered credit card approval or rejection prediction.{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================================
+     PAGE HERO
+     ========================================================================= -->
+<section class="predict-hero" aria-labelledby="predict-heading">
+  <div class="container">
+    <div class="text-center fade-in-up">
+      <div class="hero-badge d-inline-flex mb-3">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        AI Prediction Engine
+      </div>
+      <h1 class="page-hero-title" id="predict-heading">Credit Approval Prediction</h1>
+      <p class="page-hero-sub mx-auto mt-2">
+        Complete the form below with the applicant's information and receive an instant ML-powered decision.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     PREDICTION FORM SECTION
+     ========================================================================= -->
+<section class="form-section" aria-label="Prediction form section">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+
+      <!-- ---- MAIN FORM ---- -->
+      <div class="col-lg-8">
+        <div class="form-card fade-in-up">
+
+          <!-- Form Header -->
+          <div class="form-card-header">
+            <div class="feature-icon icon-blue" style="width:42px;height:42px;font-size:1.2rem;flex-shrink:0;" aria-hidden="true">
+              <i class="bi bi-person-vcard-fill"></i>
+            </div>
+            <div>
+              <h4>Applicant Information</h4>
+              <p>All fields are required for an accurate prediction</p>
+            </div>
+          </div>
+
+          <!-- Form Body -->
+          <div class="form-card-body">
+            <form id="predictionForm"
+                  method="POST"
+                  action="{{ url_for('predict') }}"
+                  novalidate
+                  aria-label="Credit card approval prediction form">
+
+              <!-- ---- PERSONAL DETAILS ---- -->
+              <div class="form-section-label" id="personal-section">
+                <i class="bi bi-person-fill" aria-hidden="true"></i>
+                Personal Details
+              </div>
+
+              <div class="row g-3 mb-4">
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label" for="gender">
+                      Gender <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <select class="form-select" id="gender" name="gender" required aria-required="true" aria-describedby="gender-hint">
+                      <option value="" disabled selected>Select gender</option>
+                      <option value="M">Male</option>
+                      <option value="F">Female</option>
+                    </select>
+                    <div class="form-hint" id="gender-hint">Biological gender of applicant</div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label" for="own_car">
+                      Own Car <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <select class="form-select" id="own_car" name="own_car" required aria-required="true">
+                      <option value="" disabled selected>Select option</option>
+                      <option value="Y">Yes</option>
+                      <option value="N">No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label" for="own_realty">
+                      Own Realty <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <select class="form-select" id="own_realty" name="own_realty" required aria-required="true">
+                      <option value="" disabled selected>Select option</option>
+                      <option value="Y">Yes</option>
+                      <option value="N">No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="family_status">
+                      Family Status <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <select class="form-select" id="family_status" name="family_status" required aria-required="true">
+                      <option value="" disabled selected>Select status</option>
+                      <option value="Married">Married</option>
+                      <option value="Single / not married">Single / Not Married</option>
+                      <option value="Civil marriage">Civil Marriage</option>
+                      <option value="Separated">Separated</option>
+                      <option value="Widow">Widow</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="housing_type">
+                      Housing Type <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <select class="form-select" id="housing_type" name="housing_type" required aria-required="true">
+                      <option value="" disabled selected>Select housing</option>
+                      <option value="House / apartment">House / Apartment</option>
+                      <option value="With parents">With Parents</option>
+                      <option value="Municipal apartment">Municipal Apartment</option>
+                      <option value="Rented apartment">Rented Apartment</option>
+                      <option value="Office apartment">Office Apartment</option>
+                      <option value="Co-op apartment">Co-op Apartment</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="days_birth">
+                      Days Since Birth <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="days_birth" name="days_birth"
+                           placeholder="e.g. -14235  (≈ 39 years)"
+                           required aria-required="true"
+                           aria-describedby="days-birth-hint"
+                           max="-6570" min="-32850" />
+                    <div class="form-hint" id="days-birth-hint">Negative number. −365 × age (e.g. 39 yrs → −14235)</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="family_members">
+                      Family Members <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="family_members" name="family_members"
+                           placeholder="e.g. 2"
+                           min="1" max="20" required aria-required="true" />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="children">
+                      Number of Children <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="children" name="children"
+                           placeholder="e.g. 0"
+                           min="0" max="10" required aria-required="true" />
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- ---- FINANCIAL DETAILS ---- -->
+              <div class="form-section-label" id="financial-section">
+                <i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                Financial Information
+              </div>
+
+              <div class="row g-3 mb-4">
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="income_type">
+                      Income Type <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <select class="form-select" id="income_type" name="income_type" required aria-required="true">
+                      <option value="" disabled selected>Select income type</option>
+                      <option value="Working">Working</option>
+                      <option value="Commercial associate">Commercial Associate</option>
+                      <option value="Pensioner">Pensioner</option>
+                      <option value="State servant">State Servant</option>
+                      <option value="Student">Student</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="annual_income">
+                      Annual Income (USD) <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="annual_income" name="annual_income"
+                           placeholder="e.g. 135000"
+                           min="0" step="1000" required aria-required="true"
+                           aria-describedby="income-hint" />
+                    <div class="form-hint" id="income-hint">Enter annual gross income in USD</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="employment_days">
+                      Employment Days <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="employment_days" name="employment_days"
+                           placeholder="e.g. -1825  (≈ 5 years employed)"
+                           required aria-required="true"
+                           aria-describedby="emp-days-hint" />
+                    <div class="form-hint" id="emp-days-hint">Negative = employed; Positive = unemployed (days since job loss)</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="education_type">
+                      Education Type <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <select class="form-select" id="education_type" name="education_type" required aria-required="true">
+                      <option value="" disabled selected>Select education</option>
+                      <option value="Secondary / secondary special">Secondary / Secondary Special</option>
+                      <option value="Higher education">Higher Education</option>
+                      <option value="Incomplete higher">Incomplete Higher</option>
+                      <option value="Lower secondary">Lower Secondary</option>
+                      <option value="Academic degree">Academic Degree</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="occupation">
+                      Occupation <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <select class="form-select" id="occupation" name="occupation" required aria-required="true">
+                      <option value="" disabled selected>Select occupation</option>
+                      <option value="Laborers">Laborers</option>
+                      <option value="Core staff">Core Staff</option>
+                      <option value="Accountants">Accountants</option>
+                      <option value="Managers">Managers</option>
+                      <option value="Drivers">Drivers</option>
+                      <option value="Sales staff">Sales Staff</option>
+                      <option value="Cleaning staff">Cleaning Staff</option>
+                      <option value="Cooking staff">Cooking Staff</option>
+                      <option value="Private service staff">Private Service Staff</option>
+                      <option value="Medicine staff">Medicine Staff</option>
+                      <option value="Security staff">Security Staff</option>
+                      <option value="High skill tech staff">High Skill Tech Staff</option>
+                      <option value="Waiters/barmen staff">Waiters / Barmen Staff</option>
+                      <option value="Low-skill Laborers">Low-Skill Laborers</option>
+                      <option value="Realty agents">Realty Agents</option>
+                      <option value="Secretaries">Secretaries</option>
+                      <option value="IT staff">IT Staff</option>
+                      <option value="HR staff">HR Staff</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- ---- CREDIT HISTORY ---- -->
+              <div class="form-section-label" id="credit-section">
+                <i class="bi bi-credit-card-2-front" aria-hidden="true"></i>
+                Credit History
+              </div>
+
+              <div class="row g-3 mb-5">
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label" for="credit_status">
+                      Credit Status <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <select class="form-select" id="credit_status" name="credit_status" required aria-required="true">
+                      <option value="" disabled selected>Select status</option>
+                      <option value="1">Good Standing</option>
+                      <option value="0">Poor Standing</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label" for="emi_paid">
+                      EMI Paid Off <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="emi_paid" name="emi_paid_off"
+                           placeholder="e.g. 12"
+                           min="0" required aria-required="true" />
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label" for="emi_past_due">
+                      EMI Past Due <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="emi_past_due" name="emi_past_due"
+                           placeholder="e.g. 0"
+                           min="0" required aria-required="true" />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="num_loans">
+                      Number of Loans <span class="text-danger" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="num_loans" name="num_loans"
+                           placeholder="e.g. 3"
+                           min="0" required aria-required="true" />
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- ---- SUBMIT BUTTON ---- -->
+              <button type="submit" class="btn-predict" id="submitPrediction" aria-label="Submit form for credit approval prediction">
+                <span class="btn-icon" aria-hidden="true">
+                  <i class="bi bi-cpu-fill"></i>
+                </span>
+                <span class="btn-text">Predict Credit Approval</span>
+                <i class="bi bi-arrow-right-circle-fill" aria-hidden="true"></i>
+              </button>
+
+            </form>
+          </div><!-- /.form-card-body -->
+
+        </div><!-- /.form-card -->
+      </div>
+
+      <!-- ---- SIDEBAR ---- -->
+      <div class="col-lg-4 fade-in-right delay-200">
+        <div class="info-sidebar">
+
+          <!-- Tips Card -->
+          <div class="sidebar-card">
+            <h6><i class="bi bi-lightbulb-fill text-warning"></i>Form Tips</h6>
+            <div class="info-tip">
+              <span class="tip-dot" aria-hidden="true"></span>
+              <span><strong>Days Since Birth:</strong> Use negative values. Age 30 → −10950</span>
+            </div>
+            <div class="info-tip">
+              <span class="tip-dot" aria-hidden="true"></span>
+              <span><strong>Employment Days:</strong> Negative = currently employed. −365 = 1 year.</span>
+            </div>
+            <div class="info-tip">
+              <span class="tip-dot" aria-hidden="true"></span>
+              <span><strong>Annual Income:</strong> Enter gross yearly income in USD before tax.</span>
+            </div>
+            <div class="info-tip">
+              <span class="tip-dot" aria-hidden="true"></span>
+              <span><strong>EMI Paid Off:</strong> Total EMI instalments successfully paid.</span>
+            </div>
+            <div class="info-tip">
+              <span class="tip-dot" aria-hidden="true"></span>
+              <span><strong>EMI Past Due:</strong> Instalments missed or overdue. 0 = perfect.</span>
+            </div>
+          </div>
+
+          <!-- How it Works -->
+          <div class="sidebar-card">
+            <h6><i class="bi bi-gear-fill text-primary"></i>How It Works</h6>
+            <ol style="padding-left:1.2rem;margin:0;display:flex;flex-direction:column;gap:0.7rem;">
+              <li style="font-size:0.85rem;color:var(--text-secondary);">Fill in all applicant details in the form</li>
+              <li style="font-size:0.85rem;color:var(--text-secondary);">Click <strong>Predict Credit Approval</strong></li>
+              <li style="font-size:0.85rem;color:var(--text-secondary);">Data is encoded and fed to the trained ML model</li>
+              <li style="font-size:0.85rem;color:var(--text-secondary);">Result page shows Approved ✅ or Rejected ❌</li>
+            </ol>
+          </div>
+
+          <!-- Model Info -->
+          <div class="sidebar-card">
+            <h6><i class="bi bi-cpu text-success"></i>Active Model</h6>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="model-pill rf" style="font-size:0.78rem;">🌲 Random Forest</span>
+              <span style="font-size:0.78rem;color:var(--text-muted);">Best Performer</span>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <span style="font-size:0.75rem;background:#EFF6FF;color:var(--primary);padding:3px 10px;border-radius:50px;font-weight:600;">Accuracy: 93.4%</span>
+              <span style="font-size:0.75rem;background:#F0FDF4;color:var(--success);padding:3px 10px;border-radius:50px;font-weight:600;">AUC: 0.97</span>
+            </div>
+          </div>
+
+          <!-- Privacy Notice -->
+          <div class="sidebar-card" style="border-color:rgba(34,197,94,0.2);background:rgba(240,253,244,0.7);">
+            <h6><i class="bi bi-shield-check-fill text-success"></i>Privacy Notice</h6>
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin:0;line-height:1.6;">
+              No applicant data is stored or transmitted to third parties. All predictions are processed in-memory and discarded after the response is returned.
+            </p>
+          </div>
+
+        </div><!-- /.info-sidebar -->
+      </div>
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section>
+
+{% endblock %}

@@ -1,0 +1,319 @@
+{% extends "base.html" %}
+
+{% block title %}Home — Credit Card Approval Prediction System{% endblock %}
+{% block meta_desc %}AI-powered credit card approval prediction using Logistic Regression, Decision Tree, Random Forest, and XGBoost. Get instant decisions.{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================================
+     HERO SECTION
+     ========================================================================= -->
+<section class="hero-section" aria-labelledby="hero-heading">
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+
+      <!-- LEFT — Text Content -->
+      <div class="col-lg-6 fade-in-left">
+
+        <div class="hero-badge" aria-label="Live AI System">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          AI-Powered · Live System
+        </div>
+
+        <h1 class="hero-title" id="hero-heading">
+          Credit Card<br />
+          <span class="gradient-text">Approval Prediction</span><br />
+          System
+        </h1>
+
+        <p class="hero-subtitle">
+          An intelligent Machine Learning application that analyses applicant
+          demographic and financial data to predict whether a credit card
+          application should be <strong style="color:#86EFAC;">approved</strong>
+          or <strong style="color:#FCA5A5;">rejected</strong> — instantly.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="{{ url_for('predict') }}" class="btn-hero-primary" id="hero-cta-predict" aria-label="Go to prediction form">
+            <i class="bi bi-cpu-fill"></i>
+            Predict Now
+          </a>
+          <a href="#features" class="btn-hero-secondary" id="hero-cta-learn" aria-label="Learn more about features">
+            <i class="bi bi-play-circle"></i>
+            Learn More
+          </a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT — Visual Card -->
+      <div class="col-lg-6 fade-in-right delay-200">
+        <div class="hero-visual">
+
+          <!-- Floating Chips -->
+          <div class="hero-chip chip-1" aria-hidden="true">
+            <i class="bi bi-shield-check text-success"></i>
+            Secure &amp; Private
+          </div>
+          <div class="hero-chip chip-2" aria-hidden="true">
+            <i class="bi bi-lightning-charge-fill text-warning"></i>
+            Real-Time
+          </div>
+          <div class="hero-chip chip-3" aria-hidden="true">
+            <i class="bi bi-graph-up-arrow text-primary"></i>
+            93%+ Accuracy
+          </div>
+
+          <!-- Main Card -->
+          <div class="hero-card" role="img" aria-label="Model performance dashboard">
+
+            <div class="hero-card-header">
+              <div class="hero-card-icon" aria-hidden="true">💳</div>
+              <div>
+                <div class="hero-card-title">ML Dashboard</div>
+                <div class="hero-card-sub">Credit Risk Assessment</div>
+              </div>
+            </div>
+
+            <div class="hero-stat-row">
+              <div class="hero-stat">
+                <div class="hero-stat-val" data-counter="93.4" data-suffix="%" aria-label="Model accuracy">93.4%</div>
+                <div class="hero-stat-lbl">Accuracy</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-val" data-counter="4" aria-label="4 models">4</div>
+                <div class="hero-stat-lbl">ML Models</div>
+              </div>
+            </div>
+
+            <div class="hero-progress-list">
+              <div class="hero-progress-item">
+                <label>
+                  <span>Random Forest</span>
+                  <span>93.4%</span>
+                </label>
+                <div class="progress" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" aria-label="Random Forest accuracy">
+                  <div class="progress-bar bg-primary" data-width="93%" style="width:0%"></div>
+                </div>
+              </div>
+              <div class="hero-progress-item">
+                <label>
+                  <span>XGBoost</span>
+                  <span>91.7%</span>
+                </label>
+                <div class="progress" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="XGBoost accuracy">
+                  <div class="progress-bar" style="background:#818CF8;width:0%" data-width="92%"></div>
+                </div>
+              </div>
+              <div class="hero-progress-item">
+                <label>
+                  <span>Logistic Regression</span>
+                  <span>87.2%</span>
+                </label>
+                <div class="progress" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" aria-label="Logistic Regression accuracy">
+                  <div class="progress-bar" style="background:#22C55E;width:0%" data-width="87%"></div>
+                </div>
+              </div>
+              <div class="hero-progress-item">
+                <label>
+                  <span>Decision Tree</span>
+                  <span>85.5%</span>
+                </label>
+                <div class="progress" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" aria-label="Decision Tree accuracy">
+                  <div class="progress-bar" style="background:#F59E0B;width:0%" data-width="86%"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.hero-card -->
+
+        </div><!-- /.hero-visual -->
+      </div>
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section>
+
+
+<!-- =========================================================================
+     FEATURE CARDS SECTION
+     ========================================================================= -->
+<section class="feature-section" id="features" aria-labelledby="features-heading">
+  <div class="container">
+
+    <div class="text-center mb-5 fade-in-up">
+      <div class="section-tag"><i class="bi bi-stars"></i>Key Features</div>
+      <h2 class="section-title gradient-underline" id="features-heading">
+        Why Choose This System?
+      </h2>
+      <p class="section-subtitle mx-auto mt-3" style="max-width:560px;">
+        Combining the power of multiple machine learning algorithms with a
+        modern, intuitive interface for instant credit decisions.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-lg-3 col-md-6 fade-in-up delay-100">
+        <div class="feature-card">
+          <div class="feature-icon icon-blue" aria-hidden="true">
+            <i class="bi bi-cpu-fill"></i>
+          </div>
+          <h5>Machine Learning</h5>
+          <p>Powered by four industry-standard ML algorithms trained on real-world credit data for reliable predictions.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 fade-in-up delay-200">
+        <div class="feature-card">
+          <div class="feature-icon icon-green" aria-hidden="true">
+            <i class="bi bi-lightning-charge-fill"></i>
+          </div>
+          <h5>Real-Time Prediction</h5>
+          <p>Get instant credit card approval decisions — results generated in milliseconds from submitted form data.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 fade-in-up delay-300">
+        <div class="feature-card">
+          <div class="feature-icon icon-violet" aria-hidden="true">
+            <i class="bi bi-server"></i>
+          </div>
+          <h5>Flask Application</h5>
+          <p>Clean, production-grade Python Flask backend with modular architecture and Pickle-based model serving.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 fade-in-up delay-400">
+        <div class="feature-card">
+          <div class="feature-icon icon-amber" aria-hidden="true">
+            <i class="bi bi-cloud-upload-fill"></i>
+          </div>
+          <h5>IBM Watson Ready</h5>
+          <p>Designed for seamless deployment on IBM Watson Machine Learning for enterprise-grade cloud inference.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 fade-in-up delay-100">
+        <div class="feature-card">
+          <div class="feature-icon icon-indigo" aria-hidden="true">
+            <i class="bi bi-shield-lock-fill"></i>
+          </div>
+          <h5>Secure Processing</h5>
+          <p>All applicant data is processed server-side without storage, ensuring privacy and data protection compliance.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 fade-in-up delay-200">
+        <div class="feature-card">
+          <div class="feature-icon icon-green" aria-hidden="true">
+            <i class="bi bi-graph-up-arrow"></i>
+          </div>
+          <h5>High Accuracy</h5>
+          <p>Best model achieves over 93% accuracy with robust cross-validation ensuring reliable real-world performance.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 fade-in-up delay-300">
+        <div class="feature-card">
+          <div class="feature-icon icon-blue" aria-hidden="true">
+            <i class="bi bi-phone-fill"></i>
+          </div>
+          <h5>Mobile Friendly</h5>
+          <p>Fully responsive design built with Bootstrap 5 — works flawlessly on desktop, tablet, and mobile devices.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 fade-in-up delay-400">
+        <div class="feature-card">
+          <div class="feature-icon icon-amber" aria-hidden="true">
+            <i class="bi bi-bar-chart-line-fill"></i>
+          </div>
+          <h5>Explainable AI</h5>
+          <p>Feature-engineering pipeline with transparent preprocessing — every prediction decision is traceable and understandable.</p>
+        </div>
+      </div>
+
+    </div><!-- /.row -->
+
+  </div>
+</section>
+
+
+<!-- =========================================================================
+     STATISTICS SECTION
+     ========================================================================= -->
+<section class="stats-section" aria-labelledby="stats-heading">
+  <div class="container position-relative">
+
+    <div class="text-center mb-5 fade-in-up">
+      <div class="section-tag" style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.65);">
+        <i class="bi bi-bar-chart-fill"></i>By the Numbers
+      </div>
+      <h2 class="section-title" id="stats-heading" style="color:#fff;">
+        System Highlights
+      </h2>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-lg-3 col-md-6 col-6 fade-in-up delay-100">
+        <div class="stat-card">
+          <div class="stat-number" data-counter="4" aria-label="4 Machine Learning Models">4</div>
+          <div class="stat-label">ML Models</div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-6 fade-in-up delay-200">
+        <div class="stat-card">
+          <div class="stat-number" data-counter="93.4" data-suffix="%" aria-label="93.4% accuracy">93.4%</div>
+          <div class="stat-label">Best Accuracy</div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-6 fade-in-up delay-300">
+        <div class="stat-card">
+          <div class="stat-number" data-counter="16" aria-label="16 features">16</div>
+          <div class="stat-label">Input Features</div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-6 fade-in-up delay-400">
+        <div class="stat-card">
+          <div class="stat-number" data-counter="100" data-suffix="ms" aria-label="100 milliseconds">100ms</div>
+          <div class="stat-label">Avg Response Time</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================================================================
+     CTA SECTION
+     ========================================================================= -->
+<section class="py-5" style="background:var(--bg);" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center fade-in-up">
+        <div class="glass-card p-5 border-0" style="background:linear-gradient(135deg,#EFF6FF,#EDE9FE);border-radius:28px!important;">
+          <div class="mb-3" style="font-size:3rem;" aria-hidden="true">💳</div>
+          <h2 class="section-title mb-3" id="cta-heading">Ready to Make a Prediction?</h2>
+          <p class="section-subtitle mb-4">
+            Fill in the applicant's details and let our trained ML model decide the outcome in real time.
+          </p>
+          <a href="{{ url_for('predict') }}" class="btn-hero-primary d-inline-flex" id="cta-predict-btn" aria-label="Start credit prediction">
+            <i class="bi bi-arrow-right-circle-fill"></i>
+            Start Prediction
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
