@@ -269,7 +269,7 @@ https://drive.google.com/file/d/11AL1Pm76_l-0QlN1YBtgfhKvJyMCOWFW/view?usp=drive
 
 ## 👥 Team Members
 
-- Zaamir Hanan Mujeeb (Team Lead)
+- Zaamir Hanan (Team Lead)
 - Deepak Bellam
 - Mohana Krishna Reddy
 - Rushikesh Kasthuri
