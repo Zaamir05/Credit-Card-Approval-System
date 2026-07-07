@@ -238,15 +238,6 @@ gunicorn -w 4 -b 0.0.0.0:5000 app:app
 
 ---
 
-## 👤 Author
-
-**Credit Card Approval Prediction System**
-
-- GitHub: [github.com/yourusername](https://github.com/yourusername)
-- LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-
----
-
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
