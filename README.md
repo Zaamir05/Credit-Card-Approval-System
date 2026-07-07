@@ -86,16 +86,6 @@ Credit-Card-Approval-Prediction/
     └── result.html             # Result page (approved/rejected card)
 ```
 
----
-
-## 🖼️ Application Screenshots
-
-### 🏠 Home Page
-
-/home/zaamir/Downloads/WhatsApp Unknown 2026-07-07 at 10.56.53 AM/
-
----
-
 ## ⚙️ Installation & Setup
 
 ### 1. Clone the Repository
@@ -273,7 +263,7 @@ All core functionalities were successfully verified.
 
 **Demo Video**
 
-[Add your demo video link here]
+https://drive.google.com/file/d/11AL1Pm76_l-0QlN1YBtgfhKvJyMCOWFW/view?usp=drivesdk
 
 ---
 
